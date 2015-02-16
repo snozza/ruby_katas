@@ -89,7 +89,7 @@ class Direction
   end
 
   def self.East
-    EastDirecton.new
+    EastDirection.new
   end
 
   def self.West

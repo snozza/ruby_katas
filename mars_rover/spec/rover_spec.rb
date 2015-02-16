@@ -56,6 +56,12 @@ describe Rover do
       expect(rover.get_position).to eql [-2, -1]
     end
 
+    it('can move one forward two backward turn right facing east') do
+      rover = Rover.new(Position.new, Direction.East)
+      rover.move(['f', 'l', 'b', 'b'])
+      expect(rover.get_position).to eql [-2, 1]
+    end
+
   end
 
 end
