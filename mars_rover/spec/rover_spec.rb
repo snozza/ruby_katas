@@ -8,7 +8,7 @@ describe Rover do
     it('has a default position and a direction') do
       rover = Rover.new
       expect(rover.get_position).to eql [0, 0]
-      expect(rover.direction).to eql 'N'
+      expect(rover.direction.class).to eql Direction.North.class
     end
 
     it('can accept initial values') do
@@ -39,13 +39,13 @@ describe Rover do
     end
 
     it('can move two forward two backward facing south') do
-      rover = Rover.new(Position.new, 'S')
+      rover = Rover.new(Position.new, Direction.South)
       rover.move(['f', 'b', 'b'])
       expect(rover.get_position).to eql [1, 0]
     end
 
     it('can move one forward one backward turn right facing south') do
-      rover = Rover.new(Position.new, 'S')
+      rover = Rover.new(Position.new, Direction.South)
       rover.move(['f', 'r', 'b'])
       expect(rover.get_position).to eql [-1, 1]
     end

@@ -11,4 +11,20 @@ class Position
     [@x, @y]
   end
 
+  def up
+    @x+=1
+  end
+
+  def down
+    @x-=1
+  end
+
+  def left
+    @y-=1
+  end
+
+  def right
+    @y+=1
+  end
+
 end
