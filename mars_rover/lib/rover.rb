@@ -1,23 +1,24 @@
+require_relative 'position'
+
 class Rover
 
   attr_accessor :direction
 
-  def initialize(x=0, y=0, direction='N')
-    @x = x
-    @y = y
+  def initialize(position=Position.new, direction='N')
+    @position = position
     @direction = direction
   end
 
   def move(cmds)
     cmds.each do |cmd|
-      @x+=1 if cmd == 'f' && @direction == 'N'       
-      @x-=1 if cmd == 'b' && @direction == 'N'       
-      @x-=1 if cmd == 'f' && @direction == 'S'        
-      @x+=1 if cmd == 'b' && @direction == 'S'
-      @y+=1 if cmd == 'f' && @direction == 'E'
-      @y-=1 if cmd == 'b' && @direction == 'E'
-      @y-=1 if cmd == 'f' && @direction == 'W'
-      @y+=1 if cmd == 'b' && @direction == 'W'
+      @position.x+=1 if cmd == 'f' && @direction == 'N'       
+      @position.x-=1 if cmd == 'b' && @direction == 'N'       
+      @position.x-=1 if cmd == 'f' && @direction == 'S'        
+      @position.x+=1 if cmd == 'b' && @direction == 'S'
+      @position.y+=1 if cmd == 'f' && @direction == 'E'
+      @position.y-=1 if cmd == 'b' && @direction == 'E'
+      @position.y-=1 if cmd == 'f' && @direction == 'W'
+      @position.y+=1 if cmd == 'b' && @direction == 'W'
       change_direction('r') if cmd == 'r'
       change_direction('l') if cmd == 'l'
     end
@@ -30,8 +31,8 @@ class Rover
     @direction = 'W' if cmd == 'l' && direction == 'N'
   end
 
-  def position
-    [@x, @y]
+  def get_position
+    @position.get_position
   end
 
 end
