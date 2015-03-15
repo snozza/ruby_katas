@@ -73,6 +73,12 @@ describe Rover do
       rover.move(['f', 'f', 'f'])
       expect(rover.get_position).to eql [10, -8]
     end
+
+    it 'wraps around finite grid when moving west' do
+      rover = Rover.new(Position.new(20, -30), Direction.West, [30, 30])
+      rover.move(['f', 'f'])
+      expect(rover.get_position).to eql [20, 29]
+    end
   end
 
 end

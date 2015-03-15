@@ -31,6 +31,11 @@ class Position
     @y-=1
   end
 
+  def left
+    return @y = @grid_size[1] if is_finite_grid? and @y-1 < @grid_size[1] * -1
+    @y-=1
+  end
+
   def right
     return @y = 0 - @grid_size[1] if is_finite_grid? and @y+1 > @grid_size[1]
     @y+=1
