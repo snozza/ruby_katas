@@ -5,9 +5,10 @@ class Rover
 
   attr_accessor :direction
 
-  def initialize(position=Position.new, direction=Direction.North)
+  def initialize(position=Position.new, direction=Direction.North, grid_size=[-1, -1])
     @position = position
     @direction = direction
+    @position.set_grid_size(grid_size)
   end
 
   def move(cmds)

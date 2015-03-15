@@ -11,6 +11,10 @@ class Position
     [@x, @y]
   end
 
+  def set_grid_size(grid_size)
+    @grid_size = grid_size
+  end
+
   def up
     @x+=1
   end

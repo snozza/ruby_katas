@@ -62,6 +62,11 @@ describe Rover do
       expect(rover.get_position).to eql [-2, 1]
     end
 
+    it('moves as normal on a finite grid') do
+      rover = Rover.new(Position.new(10, 10), Direction.West, [20, 20])
+      rover.move(['f', 'f'])
+      expect(rover.get_position).to eql [10, 8]
+    end
   end
 
 end
