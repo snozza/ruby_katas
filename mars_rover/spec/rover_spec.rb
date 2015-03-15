@@ -69,7 +69,7 @@ describe Rover do
     end
 
     it('wraps around finite grid when moving east') do
-      rover = Rover.new(Posiion.new(10, 10), Direction.East, [10, 10])
+      rover = Rover.new(Position.new(10, 10), Direction.East, [10, 10])
       rover.move(['f', 'f', 'f'])
       expect(rover.get_position).to eql [10, -8]
     end
